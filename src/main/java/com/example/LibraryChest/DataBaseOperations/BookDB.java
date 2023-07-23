@@ -27,16 +27,16 @@ public class BookDB {
         Session session = getSession();
         session.beginTransaction();
         session.getTransaction().commit();
+        Book book = new Book("","","",0);
+        return book;
 
-        return
     }
-    public static void addBook(String name,String author,String user,int population){
-        Session session =getSession();
+    public static void addBook(String name,String author){
+        Session session = getSession();
         session.beginTransaction();
-        Book book = new Book(name,author,user,population);
+        Book book = new Book(name,author," ",0);
         session.save(book);
         session.getTransaction().commit();
-
     }
 
 }
