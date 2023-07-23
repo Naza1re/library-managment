@@ -25,10 +25,10 @@ public class LibraryController {
     @GetMapping("/books")
     public String showAllBooks(Model model) {
         Session session = BookDB.getSession();
-        session.beginTransaction(); // Начать транзакцию
+        session.beginTransaction();
         List<Book> books = session.createQuery("FROM Book", Book.class).list();
         model.addAttribute("books", books);
-        session.getTransaction().commit(); // Завершить транзакцию
+        session.getTransaction().commit();
         return "books";
     }
 
