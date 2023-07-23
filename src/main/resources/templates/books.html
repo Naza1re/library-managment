@@ -2,21 +2,100 @@
 <html>
 <head>
     <title>Список книг</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <h1>Список книг</h1>
+
+<div>
+    <label for="search">Поиск:</label>
+    <input type="text" id="search" placeholder="Введите название книги или автора">
+    <button onclick="searchBooks()">Найти</button>
+</div>
+
+<div>
+    <label for="category">Категория:</label>
+    <select id="category" onchange="searchBooks()">
+        <option value="">Все</option>
+        <option value="Фантастика">Фантастика</option>
+        <option value="Роман">Роман</option>
+        <!-- Добавьте другие категории книг, если необходимо -->
+    </select>
+</div>
+
 <table>
     <tr>
         <th>Название</th>
         <th>Автор</th>
-
     </tr>
 
     <tr th:each="book : ${books}">
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>
-
     </tr>
 </table>
+
+<script>
+    function searchBooks() {
+        const input = document.getElementById("search");
+        const category = document.getElementById("category");
+        const filter = input.value.toUpperCase();
+        const table = document.getElementsByTagName("table")[0];
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const nameCol = rows[i].getElementsByTagName("td")[0];
+            const authorCol = rows[i].getElementsByTagName("td")[1];
+
+            const nameValue = nameCol.textContent || nameCol.innerText;
+            const authorValue = authorCol.textContent || authorCol.innerText;
+
+            const categoryValue = category.value.toUpperCase();
+
+            if (
+                (nameValue.toUpperCase().indexOf(filter) > -1 || authorValue.toUpperCase().indexOf(filter) > -1) &&
+                (categoryValue === "" || categoryValue === "ВСЕ" || categoryValue === nameValue.toUpperCase())
+            ) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
