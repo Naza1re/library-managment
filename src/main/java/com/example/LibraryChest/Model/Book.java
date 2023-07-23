@@ -59,6 +59,17 @@ public class Book {
         return population;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", user='" + user + '\'' +
+                ", population=" + population +
+                '}';
+    }
+
     public void setPopulation(int population) {
         this.population = population;
     }

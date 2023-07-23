@@ -18,8 +18,12 @@ public class TestConnection {
             Session session = factory.getCurrentSession();
             Book book = new Book("Философия JAVA", "Брюс Эккель", "Никита Михалков", 22);
             session.beginTransaction();
-            session.save(book);
+
+
+            Book book1 = session.get(Book.class,2);
             session.getTransaction().commit();
+            System.out.println(book1);
+
         }
         finally {
             factory.close();
