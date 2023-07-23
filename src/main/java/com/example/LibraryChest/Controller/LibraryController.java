@@ -3,7 +3,7 @@ package com.example.LibraryChest.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 @Controller
 public class LibraryController {
@@ -12,6 +12,12 @@ public class LibraryController {
         model.addAttribute("title", "Главная страница");
         return "main";
     }
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+
 
 
 }

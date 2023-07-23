@@ -1,14 +1,75 @@
 <div th:fragment="header">
-  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-    <a href="/static" class="d-flex align-items-center text-dark text-decoration-none">
-      <span class="fs-4">Halcyon</span>
-    </a>
 
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <a class="me-3 py-2 text-dark text-decoration-none" href="/static">Главная</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="/blog">Блог</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="/blog/add">Добавить статью</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="/about">Про нас</a>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Название вашего сайта</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #81a9d2;
+      padding: 15px;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; /* Новое свойство для выравнивания элементов по краям */
+      align-items: center; /* Добавлено для центрирования элементов по вертикали */
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #343a40;
+    }
+
+    .nav-links {
+      margin-top: 10px;
+    }
+
+    .nav-link {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #343a40;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-link {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="d-flex flex-column flex-md-row align-items-center">
+    <a href="/main" class="logo">Books</a>
+
+    <nav class="nav-links">
+      <a class="nav-link" href="/book">Книги</a>
+      <a class="nav-link" href="/book/add">Добавить книгу</a>
+      <a class="nav-link" href="/about">Про нас</a>
     </nav>
   </div>
+</header>
+</body>
 </div>

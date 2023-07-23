@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить книгу</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Добавление книги</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/book/add" method="post" th:object="${book}">
+                        <div class="form-group">
+                            <label for="title">Название книги</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Введите название книги" th:field="*{name}">
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Автор книги</label>
+                            <input type="text" class="form-control" id="author" name="author" placeholder="Введите автора книги" th:field="*{author}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Добавить книгу</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
