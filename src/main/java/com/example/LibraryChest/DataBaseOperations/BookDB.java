@@ -19,6 +19,12 @@ public class BookDB {
         Session session = factory.getCurrentSession();
         return session;
     }
+    public static Book getBookById(Long id){
+        Session session = getSession();
+        session.beginTransaction();
+        Book book = session.get(Book.class,id);
+        return book;
+    }
 
 
 

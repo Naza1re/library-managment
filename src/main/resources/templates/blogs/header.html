@@ -1,10 +1,8 @@
 <div th:fragment="header">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Название вашего сайта</title>
+  <title>Books Website</title>
   <style>
     body {
       margin: 0;
@@ -13,63 +11,64 @@
     }
 
     header {
-      background-color: #81a9d2;
-      padding: 15px;
-      border-bottom: 1px solid #e9ecef;
+      background-color: #333;
+      color: #fff;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between; /* Новое свойство для выравнивания элементов по краям */
-      align-items: center; /* Добавлено для центрирования элементов по вертикали */
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
     }
 
-    .logo {
+    .header-left h1 {
       font-size: 24px;
-      font-weight: bold;
+      margin: 0;
       text-decoration: none;
-      color: #343a40;
     }
 
-    .nav-links {
-      margin-top: 10px;
-    }
-
-    .nav-link {
-      margin-right: 20px;
+    .header-left h1 a {
+      color: #fff;
       text-decoration: none;
-      color: #343a40;
-      transition: color 0.3s ease;
     }
 
-    .nav-link:hover {
-      color: #007bff;
+    .header-left h1 a:hover {
+      color: #f0f0f0;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-      }
+    .header-right ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
-      .nav-link {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
+    .header-right li {
+      margin-left: 20px;
+    }
+
+    .header-right li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .header-right li a:hover {
+      color: #f0f0f0;
     }
   </style>
 </head>
-
 <body>
 <header>
-  <div class="d-flex flex-column flex-md-row align-items-center">
-    <a href="/" class="logo">Books</a>
-
-    <nav class="nav-links">
-      <a class="nav-link" href="/books">Книги</a>
-      <a class="nav-link" href="/book/add">Добавить книгу</a>
-      <a class="nav-link" href="/about">Про нас</a>
-    </nav>
+  <div class="header-left">
+    <h1><a href="/">Books</a></h1>
+  </div>
+  <div class="header-right">
+    <ul>
+      <li><a href="/book/add">Добавить книгу</a></li>
+      <li><a href="/books">Книги</a></li>
+      <li><a href="/about">О нас</a></li>
+    </ul>
   </div>
 </header>
 </body>
 </div>
+
