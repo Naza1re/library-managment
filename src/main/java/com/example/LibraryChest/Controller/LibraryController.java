@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class LibraryController {
     @GetMapping("/")
-    public String homePage(Model model) {
+    public String homePage() {
         return "main";
     }
     @GetMapping("/about")

@@ -8,9 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class BookDB {
 
     public static Session getSession(){
-        SessionFactory factory = null;
-
-             factory = new Configuration()
+        SessionFactory factory = new Configuration()
                     .configure("hibernate.config.xml")
                     .addAnnotatedClass(Book.class)
                     .buildSessionFactory();

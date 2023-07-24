@@ -96,6 +96,7 @@
     <tr>
         <th>Название</th>
         <th>Автор</th>
+        <th>Подробности</th>
     </tr>
 
     <tr th:each="book : ${books}">
@@ -132,6 +133,9 @@
         }
     }
 </script>
+<footer th:insert="blogs/footer :: footer">
+
+</footer>
 
 </body>
 </html>

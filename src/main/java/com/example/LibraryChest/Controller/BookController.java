@@ -6,10 +6,7 @@ import org.hibernate.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class BookController {
@@ -28,11 +25,20 @@ public class BookController {
         session.getTransaction().commit();
         return "redirect:/book/add";
     }
+    @PostMapping("/add-user-to-book")
+    public String addUserToBook( ){
+        return "book-details";
+    }
 
     @GetMapping("/book/details/{id}")
     public String showBookDetails(@PathVariable Long id, Model model) {
         Book book = BookDB.getBookById(id);
         model.addAttribute("book", book);
         return "book-details";
+    }
+    @GetMapping("/add-user-to-book")
+    public String showAddUserToBookPage(@RequestParam("bookId") Long bookId, Model mode){
+        mode.addAttribute("bookID",bookId);
+        return "add-user-to-book";
     }
 }

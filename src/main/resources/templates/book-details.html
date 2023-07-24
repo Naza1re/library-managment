@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Здесь могут быть ваши общие стили и скрипты -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 <h1 th:text="${book.name}"></h1>
 <p th:text="${book.author}"></p>
-<!-- Добавьте другую информацию о книге, если необходимо -->
+<p th:text="${book.user}"></p>
+<p th:text="${book.population}"></p>
+<a th:href="@{/add-user-to-book(bookId=${book.id})}">
+  <button>Добавить пользователя к книге</button>
+</a>
+<footer th:insert="blogs/footer :: footer">
+  <div class="container">
+    <p>All rights reserved &copy; 2023</p>
+  </div>
+</footer>
 </body>
 </html>
