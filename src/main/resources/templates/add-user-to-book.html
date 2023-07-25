@@ -7,6 +7,16 @@
 <h1>Добавление пользователя к книге</h1>
 <p>Книга с ID: <span th:text="${bookID}"></span></p>
 
+<form action="/add-user-to-book" method="post">
+  <label for="ownerName">Имя владельца:</label>
+  <input type="text" id="ownerName" name="ownerName" required>
+
+  <!-- Передача айди книги как параметра в URL -->
+  <input type="hidden" name="bookId" th:value="${bookID}">
+
+  <button type="submit">Добавить</button>
+</form>
+
 <!-- ... -->
 
 </body>

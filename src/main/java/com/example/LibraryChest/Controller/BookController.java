@@ -25,10 +25,6 @@ public class BookController {
         session.getTransaction().commit();
         return "redirect:/book/add";
     }
-    @PostMapping("/add-user-to-book")
-    public String addUserToBook( ){
-        return "book-details";
-    }
 
     @GetMapping("/book/details/{id}")
     public String showBookDetails(@PathVariable Long id, Model model) {
@@ -40,5 +36,16 @@ public class BookController {
     public String showAddUserToBookPage(@RequestParam("bookId") Long bookId, Model mode){
         mode.addAttribute("bookID",bookId);
         return "add-user-to-book";
+    }
+    @PostMapping("/add-user-to-book")
+    public String addUserToBook(@RequestParam("bookId") Long bookId, @RequestParam("ownerName") String ownerName) {
+        Session session = BookDB.getSession();
+        session.beginTransaction();
+        Book book = BookDB.getBookById(bookId);
+        book.setUser(ownerName);
+        session.saveOrUpdate(book);
+        session.getTransaction().commit();
+
+        return "redirect:/book/details/" + bookId;
     }
 }
