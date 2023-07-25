@@ -49,4 +49,16 @@ public class BookController {
 
         return "redirect:/book/details/" + bookId;
     }
+    @PostMapping("/delete-user-from-book")
+    public String deleteUserFromBook(@RequestParam("bookId") Long bookId) {
+        Session session = BookDB.getSession();
+        session.beginTransaction();
+        Book book = BookDB.getBookById(bookId);
+        book.setUser(" ");
+        session.saveOrUpdate(book);
+        session.getTransaction().commit();
+
+        return "redirect:/book/details/" + bookId;
+    }
+
 }
