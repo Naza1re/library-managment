@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <header th:insert="blogs/header :: header">
+
+  </header>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,8 +22,25 @@
       margin-bottom: 20px;
     }
 
-    p {
-      margin: 5px 0;
+    .book-details {
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .author {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .user {
+      color: #007bff;
+    }
+
+    .population {
+      color: #28a745;
     }
 
     button {
@@ -53,9 +73,11 @@
 </head>
 <body>
 <h1 th:text="${book.name}"></h1>
-<p th:text="${book.author}"></p>
-<p th:text="${book.user}"></p>
-<p th:text="${book.population}"></p>
+<div class="book-details">
+  <p class="author">Автор: <span th:text="${book.author}"></span></p>
+  <p class="user">Пользователь: <span th:text="${book.user}"></span></p>
+  <p class="population">Рейтинг популярности: <span th:text="${book.population}"></span></p>
+</div>
 <a th:href="@{/add-user-to-book(bookId=${book.id})}">
   <button>Добавить пользователя к книге</button>
 </a>

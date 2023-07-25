@@ -23,6 +23,9 @@ public class BookDB {
         Book book = session.get(Book.class,id);
         return book;
     }
+    public static boolean getStatusOfBook(){
+        return true;
+    }
 
 
 

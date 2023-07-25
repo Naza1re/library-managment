@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- Ваши общие стили и скрипты -->
+<head><header th:insert="blogs/header :: header"></header>
+  <title>Добавление пользователя к книге</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Добавление пользователя к книге</h1>
-<p>Книга с ID: <span th:text="${bookID}"></span></p>
-
-<form action="/add-user-to-book" method="post">
-  <label for="ownerName">Имя владельца:</label>
-  <input type="text" id="ownerName" name="ownerName" required>
-
-  <!-- Передача айди книги как параметра в URL -->
-  <input type="hidden" name="bookId" th:value="${bookID}">
-
-  <button type="submit">Добавить</button>
-</form>
-
-<!-- ... -->
-
+<div class="container mt-4">
+  <h1 class="text-center">Добавление пользователя к книге</h1>
+  <div class="text-center mt-3">
+    <p>Книга с ID: <span th:text="${bookID}"></span></p>
+  </div>
+  <form action="/add-user-to-book" method="post">
+    <div class="form-group">
+      <label for="ownerName">Имя владельца:</label>
+      <input type="text" id="ownerName" name="ownerName" class="form-control" required>
+    </div>
+    <input type="hidden" name="bookId" th:value="${bookID}">
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
+  </form>
+</div>
 </body>
 </html>

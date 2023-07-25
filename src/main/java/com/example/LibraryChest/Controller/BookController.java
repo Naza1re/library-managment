@@ -43,6 +43,7 @@ public class BookController {
         session.beginTransaction();
         Book book = BookDB.getBookById(bookId);
         book.setUser(ownerName);
+        book.setPopulation(book.getPopulation()+1);
         session.saveOrUpdate(book);
         session.getTransaction().commit();
 
