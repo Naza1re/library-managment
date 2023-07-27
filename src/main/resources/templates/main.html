@@ -1,9 +1,70 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Моя красивая страница</title>
+    <style>
+        /* Определение стилей для шапки */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Определение стилей для основного содержимого */
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+        }
+
+        /* Определение стилей для подвала */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Можете добавить дополнительные стили для страницы по вашему усмотрению */
+    </style>
+</head>
+<body>
+<!-- Ваш заголовок в шапке -->
 <header th:insert="blogs/header :: header">
-
+    <a href="/add-user">Добавить пользователя</a>
 </header>
+
+<!-- Содержимое страницы -->
+<main>
+
+    <a href="/add-user">Добавить пользователя</a>
+
+</main>
+
+<!-- Ваш подвал -->
 <footer th:insert="blogs/footer :: footer">
-
+    <!-- Можете добавить здесь ссылки на социальные сети или другую информацию -->
 </footer>
-
+</body>
 </html>

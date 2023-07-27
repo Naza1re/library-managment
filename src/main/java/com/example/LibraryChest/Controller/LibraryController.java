@@ -25,7 +25,7 @@ public class LibraryController {
     public String showAllBooks(Model model) {
         Session session = BookDB.getSession();
         session.beginTransaction();
-        List<Book> books = session.createQuery("FROM Book where user = null", Book.class).list();
+        List<Book> books = session.createQuery("FROM Book", Book.class).list();
         model.addAttribute("books", books);
         session.getTransaction().commit();
         return "books";
