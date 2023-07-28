@@ -16,7 +16,7 @@ public class TestConnection {
 
         try {
             Session session = factory.getCurrentSession();
-            Book book = new Book("Философия JAVA", "Брюс Эккель", "Никита Михалков", 22);
+
             session.beginTransaction();
 
 

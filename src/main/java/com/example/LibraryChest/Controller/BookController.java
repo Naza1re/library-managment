@@ -2,7 +2,6 @@ package com.example.LibraryChest.Controller;
 
 import com.example.LibraryChest.DataBaseOperations.BookDB;
 import com.example.LibraryChest.Model.Book;
-import com.example.LibraryChest.Model.User;
 import org.hibernate.Session;
 
 import org.springframework.stereotype.Controller;
@@ -55,7 +54,7 @@ public class BookController {
         Session session = BookDB.getSession();
         session.beginTransaction();
         Book book = BookDB.getBookById(bookId);
-        book.setUser(" ");
+        book.setUser(null);
         session.saveOrUpdate(book);
         session.getTransaction().commit();
 
