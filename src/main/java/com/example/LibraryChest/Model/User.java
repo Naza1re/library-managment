@@ -1,9 +1,8 @@
 package com.example.LibraryChest.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -38,6 +37,8 @@ public class User {
     @Column(name = "date")
     private String data;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Book> books;
     public int getId() {
         return id;
     }

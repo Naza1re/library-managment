@@ -1,9 +1,6 @@
 package com.example.LibraryChest.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "books")
@@ -16,17 +13,19 @@ public class Book {
     private String name;
     @Column(name = "author")
     private String author;
-    @Column(name = "user")
-    private String user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @Column(name = "population")
     private int population;
 
-    public Book(String name, String author, String user, int population) {
+    public Book(String name, String author, User user, int population) {
         this.name = name;
         this.author = author;
         this.user = user;
         this.population = population;
     }
+
     public Book(){
 
     }
@@ -47,11 +46,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

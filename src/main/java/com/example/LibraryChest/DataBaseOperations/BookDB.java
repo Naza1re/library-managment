@@ -12,6 +12,7 @@ public class BookDB {
         SessionFactory factory = new Configuration()
                     .configure("hibernate.config.xml")
                     .addAnnotatedClass(Book.class)
+                .addAnnotatedClass(User.class)
                     .buildSessionFactory();
 
 

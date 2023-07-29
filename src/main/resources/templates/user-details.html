@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+</head>
+<body>
+<h1 th:text="${user.name}"></h1>
+<div>
+    <p>Email: <span th:text="${user.email}"></span></p>
+    <p>Дата Рождения: <span th:text="${user.data}"></span></p>
+</div>
+
+<h2>Книги пользователя:</h2>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Подробности</th>
+    </tr>
+
+    <tr th:each="book : ${books}">
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td>
+            <a th:href="@{/book/details/{id}(id=${book.id})}" class="btn btn-warning">Детальнее</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

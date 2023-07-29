@@ -1,7 +1,9 @@
 package com.example.LibraryChest.Controller;
 
 import com.example.LibraryChest.DataBaseOperations.BookDB;
+import com.example.LibraryChest.DataBaseOperations.UserDB;
 import com.example.LibraryChest.Model.Book;
+import com.example.LibraryChest.Model.User;
 import org.hibernate.Session;
 
 import org.springframework.stereotype.Controller;
@@ -41,11 +43,19 @@ public class BookController {
     public String addUserToBook(@RequestParam("bookId") Long bookId, @RequestParam("ownerName") String ownerName) {
         Session session = BookDB.getSession();
         session.beginTransaction();
+
         Book book = BookDB.getBookById(bookId);
-        book.setUser(ownerName);
-        book.setPopulation(book.getPopulation()+1);
-        session.saveOrUpdate(book);
-        session.getTransaction().commit();
+        User owner = UserDB.getUserByName(ownerName);
+
+        if (owner == null) {
+            // Если пользователь с таким именем не найден, можете обработать это как необходимо
+            // например, создать нового пользователя с этим именем или вернуть сообщение об ошибке
+        } else {
+            book.setUser(owner);
+            book.setPopulation(book.getPopulation() + 1);
+            session.saveOrUpdate(book);
+            session.getTransaction().commit();
+        }
 
         return "redirect:/book/details/" + bookId;
     }

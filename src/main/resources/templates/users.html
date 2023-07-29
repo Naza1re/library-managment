@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<header th:insert="blogs/header :: header">
+
+</header>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Дата Рождения</th>
+        <th>Подробности</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.data}"></td>
+
+        <td>
+            <a th:href="@{/user/details/{id}(id=${user.id})}">Детальнее</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
