@@ -5,80 +5,7 @@
     <header th:insert="blogs/header :: header">
 
     </header>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-        }
-
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .filter-container label {
-            margin-right: 10px;
-        }
-
-        .search-btn {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .search-btn:hover {
-            background-color: #45a049;
-        }
-
-        .search-input {
-            padding: 8px;
-        }
-
-        .select-category {
-            padding: 8px;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -109,6 +36,7 @@
 </table>
 
 <script>
+    //Спасибо chatGPT)))
     function searchBooks() {
         const input = document.getElementById("search");
         const filter = input.value.toUpperCase();

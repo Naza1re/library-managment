@@ -2,54 +2,11 @@
 <html>
 <head>
     <title>Моя красивая страница</title>
-    <style>
-        /* Определение стилей для шапки */
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        header li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        header a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Определение стилей для основного содержимого */
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        p {
-            color: #555;
-        }
-
-        /* Определение стилей для подвала */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Можете добавить дополнительные стили для страницы по вашему усмотрению */
-    </style>
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+
+</header>
 <!-- Ваш заголовок в шапке -->
 
 <!-- Содержимое страницы -->
