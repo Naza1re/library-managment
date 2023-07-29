@@ -13,7 +13,7 @@ public class UserDB {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.config.xml")
                 .addAnnotatedClass(User.class)
-                .addAnnotatedClass(Book.class) // Add the Book class here
+                .addAnnotatedClass(Book.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
@@ -30,7 +30,6 @@ public class UserDB {
         try {
             session.beginTransaction();
 
-            // Используем HQL для получения пользователя по имени владельца
             Query<User> query = session.createQuery("from User where name = :name", User.class);
             query.setParameter("name", ownerName);
             User user = query.uniqueResult();
@@ -38,7 +37,7 @@ public class UserDB {
             session.getTransaction().commit();
             return user;
         } catch (Exception e) {
-            // Обработка ошибок, если необходимо
+
             e.printStackTrace();
             session.getTransaction().rollback();
             return null;

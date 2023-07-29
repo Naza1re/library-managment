@@ -5,6 +5,9 @@
     <title>User Details</title>
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+
+</header>
 <h1 th:text="${user.name}"></h1>
 <div>
     <p>Email: <span th:text="${user.email}"></span></p>

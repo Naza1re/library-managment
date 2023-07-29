@@ -48,8 +48,7 @@ public class BookController {
         User owner = UserDB.getUserByName(ownerName);
 
         if (owner == null) {
-            // Если пользователь с таким именем не найден, можете обработать это как необходимо
-            // например, создать нового пользователя с этим именем или вернуть сообщение об ошибке
+            return "user-eror";
         } else {
             book.setUser(owner);
             book.setPopulation(book.getPopulation() + 1);

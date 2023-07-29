@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <header th:insert="blogs/header :: header">
 
-  </header>
 </head>
 <body>
+<header th:insert="blogs/header :: header">
+
+</header>
 <h1 th:text="${book.name}"></h1>
 <div class="book-details">
   <p class="author">Автор: <span th:text="${book.author}"></span></p>
-  <p class="user">Пользователь: <span th:text="${book.user.name}"></span></p>
+  <p class="user">Пользователь: <span th:text="${book.user?.name}"></span></p>
   <p class="population">Рейтинг популярности: <span th:text="${book.population}"></span></p>
 </div>
 <a th:href="@{/add-user-to-book(bookId=${book.id})}">
   <button>Добавить пользователя к книге</button>
 </a>
-<form th:action="@{/delete-user-from-book(bookId=${book.id})}" method="post" onsubmit="return confirm('Вы уверены, что хотите удалить пользователя из книги?');">
+<form th:action="@{/delete-user-from-book(bookId=${book.id})}" method="post"
+      onsubmit="return confirm('Вы уверены, что хотите удалить пользователя из книги?');">
   <button type="submit">Удалить пользователя</button>
 </form>
 
